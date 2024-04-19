@@ -3,9 +3,10 @@ import './TwitterFollowCard.css'
 interface TwitterFollowCardProps {
     name: String;
     userName: String;
+    formatUsername: (userName: String) => String
 }
 
-export function TwitterFollowCard({name, userName}: TwitterFollowCardProps) {
+export function TwitterFollowCard({ formatUsername,name, userName}: TwitterFollowCardProps) {
     return (
         <article className='tw-followcard'>
             <header className='tw-followcard-header'>
@@ -17,7 +18,7 @@ export function TwitterFollowCard({name, userName}: TwitterFollowCardProps) {
                 <div className='tw-followcard-info'>
                     <strong>{name}</strong>
                     <span
-                        className='tw-followcard-userName'>@{userName}
+                        className='tw-followcard-userName'>{formatUsername(userName)}
                     </span>
                 </div>
             </header>
